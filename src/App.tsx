@@ -24,27 +24,27 @@ const App: React.FC = () => {
     };
 
     useEffect(() => {
-        window.addEventListener('keydown', handleKeyDown as EventListener);
+        window.addEventListener('keydown', handleKeyDown);
 
         return () => {
-            window.removeEventListener('keydown', handleKeyDown as EventListener);
+            window.removeEventListener('keydown', handleKeyDown);
         };
     }, [result]);
 
-    const updateCalc = (e: MouseEvent<HTMLButtonElement>) => {
+    const updateCalc = (e: MouseEvent<HTMLButtonElement>): void => {
         const value = e.currentTarget.name;
         setResult(result.concat(value));
     };
 
-    const clear = () => {
+    const clear = (): void => {
         setResult('');
     };
 
-    const backspace = () => {
+    const backspace = (): void => {
         setResult(result.slice(0, -1)); // remove last element
     };
 
-    const calculate = () => {
+    const calculate = (): void => {
         try {
             const calculatedResult = math.evaluate(result);
             setResult(calculatedResult.toString());
@@ -53,11 +53,11 @@ const App: React.FC = () => {
         }
     };
 
-    const changeTheme = () => {
-        if (dark == true) {
+    const changeTheme = (): void => {
+        if (dark) {
             setDark(false);
             document.body.classList.add('light-theme');
-        } else if (dark == false) {
+        } else {
             setDark(true);
             document.body.classList.remove('light-theme');
         }
