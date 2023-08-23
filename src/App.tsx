@@ -1,11 +1,11 @@
-import { useState, useEffect, KeyboardEvent, MouseEvent } from 'react';
+import React, { useState, useEffect, KeyboardEvent, MouseEvent } from 'react';
 import * as math from 'mathjs';
 import CalculatorDisplay from './Components/CalculatorDisplay';
 import CalculatorButtons from './Components/CalculatorButtons';
 import Footer from './Components/footer';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
     const [result, setResult] = useState<string>('');
     const [dark, setDark] = useState<boolean>(true);
 
