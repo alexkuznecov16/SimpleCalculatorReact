@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #242424;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+body.light-theme {
+    background-color: rgb(255, 255, 255);
+}
+
+button {
+    border: 1px solid;
+    outline: none;
+    background-color: transparent;
+    color: darkorange;
+}
+
+body.light-theme button {
+    color: black;
+}
+
+.Calculator {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Calculator__block {
+    height: calc(100vh - 100px);
+    max-width: 335px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Calculator__display {
+    background: #7a7a7a;
+    padding: 15px;
+    text-align: right;
+    font-size: 20px;
+    display: flex;
+    max-width: 335px !important;
+}
+
+body.light-theme .Calculator__display {
+    background-color: rgb(255, 226, 188);
+}
+
+.Calculator__display span {
+    width: 100%;
+    display: block;
+    background: blanchedalmond;
+    padding: 15px;
+    overflow: overlay;
+}
+
+body.light-theme .Calculator__display span {
+    background-color: #242424;
+    color: #fff;
+}
+
+.Calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(30px, auto);
+    gap: 5px;
+    margin-top: 1px;
+}
+
+.Calculator-buttons button {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+    transition: 0.2s linear;
+}
+
+.Calculator-operator:hover {
+    background-color: #1995aaaa;
+}
+
+body.light-theme .Calculator-operator {
+    color: tomato;
+}
+
+body.light-theme .Calculator-operator:hover {
+    background-color: rgb(108, 71, 255);
+}
+
+.Calculator-operator {
+    color: green;
+    cursor: pointer;
+}
+
+.Calculator-operator:hover {
+    background-color: #fff;
+    transform: scale(1.05);
+}
+
+.Calculator-digit {
+    color: darkorange;
+    cursor: pointer;
+}
+
+.Calculator-digit:hover {
+    background-color: rgb(122 100 216 / 0.8);
+}
+
+body.light-theme .Calculator-digit:hover {
+    background-color: rgba(100, 216, 115, 0.8);
+}
+
+footer {
+    width: 100%;
+    height: 100px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #242424;
+    flex-direction: column;
+}
+
+body.light-theme footer {
+    background-color: #91c1cc;
+}
+
+footer a {
+    color: red;
+}
