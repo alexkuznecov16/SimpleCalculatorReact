@@ -24,9 +24,11 @@ const App: React.FC = () => {
     };
 
     useEffect(() => {
+        // @ts-ignore
         window.addEventListener('keydown', handleKeyDown);
 
         return () => {
+            // @ts-ignore
             window.removeEventListener('keydown', handleKeyDown);
         };
     }, [result]);
