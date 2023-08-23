@@ -9,6 +9,7 @@ body {
     align-items: center;
     background-color: #242424;
     font-family: 'Ubuntu Mono', monospace;
+    transition: 0.2s linear;
 }
 
 body.light-theme {
@@ -126,6 +127,7 @@ footer {
     align-items: center;
     background-color: #242424;
     flex-direction: column;
+    transition: 0.2s linear;
 }
 
 body.light-theme footer {
