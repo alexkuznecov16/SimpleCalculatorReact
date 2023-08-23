@@ -10,7 +10,7 @@ const App: React.FC = () => {
     const [dark, setDark] = useState<boolean>(true);
 
     useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent<Element>) => {
+        const handleKeyDown = (event: KeyboardEvent<any>) => {
             const key = event.key;
             if ((/[0-9]/.test(key) || ['+', '-', '*', '/', '.', '%'].includes(key)) && !event.ctrlKey && !event.metaKey) {
                 event.preventDefault();
