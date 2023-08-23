@@ -9,25 +9,25 @@ const App: React.FC = () => {
     const [result, setResult] = useState<string>('');
     const [dark, setDark] = useState<boolean>(true);
 
-    useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent<any>) => {
-            const key = event.key;
-            if ((/[0-9]/.test(key) || ['+', '-', '*', '/', '.', '%'].includes(key)) && !event.ctrlKey && !event.metaKey) {
-                event.preventDefault();
-                setResult(result + key);
-            } else if (key === 'Enter') {
-                event.preventDefault();
-                calculate();
-            } else if (key === 'Backspace') {
-                event.preventDefault();
-                backspace();
-            }
-        };
+    const handleKeyDown = (event: KeyboardEvent<any>) => {
+        const key = event.key;
+        if ((/[0-9]/.test(key) || ['+', '-', '*', '/', '.', '%'].includes(key)) && !event.ctrlKey && !event.metaKey) {
+            event.preventDefault();
+            setResult(result + key);
+        } else if (key === 'Enter') {
+            event.preventDefault();
+            calculate();
+        } else if (key === 'Backspace') {
+            event.preventDefault();
+            backspace();
+        }
+    };
 
-        window.addEventListener('keydown', handleKeyDown);
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown as EventListener);
 
         return () => {
-            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('keydown', handleKeyDown as EventListener);
         };
     }, [result]);
 
@@ -63,14 +63,14 @@ const App: React.FC = () => {
         }
     };
     return (
-            <div className='Calculator'>
-                <div className='Calculator__block'>
-                    <CalculatorDisplay result={result} />
-                    <CalculatorButtons clear={clear} backspace={backspace} updateCalc={updateCalc} changeTheme={changeTheme} dark={dark} calculate={calculate} />
-                </div>
-                <Footer/>
+        <div className='Calculator'>
+            <div className='Calculator__block'>
+                <CalculatorDisplay result={result} />
+                <CalculatorButtons clear={clear} backspace={backspace} updateCalc={updateCalc} changeTheme={changeTheme} dark={dark} calculate={calculate} />
             </div>
+            <Footer />
+        </div>
     );
-}
+};
 
 export default App;
